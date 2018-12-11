@@ -1,0 +1,25 @@
+{
+	"FID": 51,
+	"Schwierigkeit": 1,
+	"Frage": "Welcher Cowboy schiesst schneller als sein Schatten?",
+	"Antworten": ["Lucky Luke", "James Bond", "John Marston"]
+}
+{
+	"FID": 52,
+	"Schwierigkeit": 1,
+	"Frage": "Wie heisst der Hund von Obelix?",
+	"Antworten": ["Idefix", "Knufix", "Rufnix"]
+}
+{
+	"FID": 53,
+	"Schwierigkeit": 2,
+	"Frage": "Wie heisst die Stadt in der die Zeichentrickserie Family Guy spielt?",
+	"Antworten": ["Quahog", "Springfield", "Cleveland"]
+}
+{
+	"FID": 54,
+	"Schwierigkeit": 1,
+	"Frage": "Auf welchen Namen regaiert der Sprachassistent von Amazon?",
+	"Antworten": ["Alexa", "Alexandra", "Alexis"]
+}
+
