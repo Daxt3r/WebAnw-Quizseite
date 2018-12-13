@@ -22,4 +22,51 @@
 	"Frage": "Auf welchen Namen regaiert der Sprachassistent von Amazon?",
 	"Antworten": ["Alexa", "Alexandra", "Alexis"]
 }
-
+{
+	"FID": 55,
+	"Schwierigkeit": 3,
+	"Frage": "Wie heissen die Nachbarn der Familie Feuerstein aus der gleichnamigen Serie?",
+	"Antworten": ["Geroellheimer", "Groellheimer", "Steinheimer"]
+}
+{
+	"FID": 56,
+	"Schwierigkeit": 2,
+	"Frage": "Wie heisst die Schwester von Michel Loennberga?",
+	"Antworten": ["Ida", "Frida", "Mathilda"]
+}
+{
+	"FID": 57,
+	"Schwierigkeit": 1,
+	"Frage": "Wie heisst der Vater von Luke Skywalker?",
+	"Antworten": ["Anakin Skywalker", "Arthur Skywalker", "Obi-Wan Skywalker"]
+}
+{
+	"FID": 58,
+	"Schwierigkeit": 1,
+	"Frage": "Wie heisst der Autor von James Bond?",
+	"Antworten": ["Ian Fleming", "Neil Fleming", "Chris Fleming"]
+}
+{
+	"FID": 59,
+	"Schwierigkeit": 1,
+	"Frage": "Wer toetet Albus Dumbledore?",
+	"Antworten": ["Snape", "Draco Malfoy", "Voldemort"]
+}
+{
+	"FID": 60,
+	"Schwierigkeit": 2,
+	"Frage": "Wann erschien das Computerspiel Age of Empires 2?",
+	"Antworten": ["1999", "1998", "1997"]
+}
+{
+	"FID": 61,
+	"Schwierigkeit": 2,
+	"Frage": "Wie viele Dragon Balls muessen gesammelt werden um den heiligen Drachen Shenlong herbeizurufen?",
+	"Antworten": ["7", "5", "8"]
+}
+{
+	"FID": ,
+	"Schwierigkeit": ,
+	"Frage": "",
+	"Antworten": ["", "", ""]
+}
