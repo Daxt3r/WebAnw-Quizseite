@@ -32,8 +32,8 @@ public class MyCustomErrorController implements ErrorController {
 	                      statusCode, exception==null? "N/A": exception.getMessage());
 	}
 
-@Override
-public String getErrorPath() {
-	return "/error";
-}
+	@Override
+	public String getErrorPath() {
+		return "/error";
+	}
 }
