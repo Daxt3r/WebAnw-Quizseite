@@ -65,10 +65,10 @@
 	"Antworten": ["7", "5", "8"]
 }
 {
-	"FID": ,
-	"Schwierigkeit": ,
-	"Frage": "",
-	"Antworten": ["", "", ""]
+	"FID": 1,
+	"Schwierigkeit": 1,
+	"Frage": "In welcher Jahreszeit schneit es?",
+	"Antworten": ["Sommer", "Winter", "Herbst"]
 }
 {
 	"FID": ,
