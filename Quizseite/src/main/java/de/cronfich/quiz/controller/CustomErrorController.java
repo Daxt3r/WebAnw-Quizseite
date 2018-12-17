@@ -1,4 +1,4 @@
-package de.cronfisch.quiz.controller;
+package de.cronfich.quiz.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.boot.web.servlet.error.ErrorController;
