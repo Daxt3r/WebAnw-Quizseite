@@ -1,9 +1,30 @@
-h1 {
-	color: grey;
+header {
+	text-align: center;
+	font-family: Arial;	
+}
+
+nav {
+	text-align: center;
 	font-family: Arial;
 }
 
-body {
-	color: grey;
+section {
+	text-align: center;
 	font-family: Arial;
 }
+footer {
+	text-align: center;
+}
+
+button {
+	text-align: center;
+	font-family: Arial;
+	color: blue;
+}
+
+h1 {
+	font-family: Arial;
+	color: grey;
+}
+
+
