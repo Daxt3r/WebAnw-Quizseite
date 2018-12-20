@@ -14,6 +14,7 @@ section {
 }
 footer {
 	text-align: center;
+	font-family: Arial;
 }
 
 button {
@@ -25,6 +26,10 @@ button {
 h1 {
 	font-family: Arial;
 	color: grey;
+}
+
+p {
+	font-family: Arial;
 }
 
 
