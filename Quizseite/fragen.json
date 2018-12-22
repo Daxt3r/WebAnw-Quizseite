@@ -71,14 +71,44 @@
 	"Antworten": ["Sommer", "Winter", "Herbst"]
 }
 {
-	"FID": ,
-	"Schwierigkeit": ,
-	"Frage": "",
-	"Antworten": ["", "", ""]
+	"FID": 62,
+	"Schwierigkeit": 1,
+	"Frage": "Wie heisst der Hund von den Simpsons?",
+	"Antworten": ["Knecht Rubrecht", "Waldo", "Rudolf"]
 }
 {
-	"FID": ,
-	"Schwierigkeit": ,
-	"Frage": "",
-	"Antworten": ["", "", ""]
+	"FID": 63,
+	"Schwierigkeit": 1,
+	"Frage": "Wie heisst der Freund von Biene Maja?",
+	"Antworten": ["Willi", "Waldo", "Walter"]
+}
+{
+	"FID": 64,
+	"Schwierigkeit": 3,
+	"Frage": "Wie heisst die weibliche Begleiterin aus Unchartet 1?",
+	"Antworten": ["Elena", "Alena", "Helena"]
+}
+{
+	"FID": 65,
+	"Schwierigkeit": 2,
+	"Frage": "Wie heissen die 3 Fragezeichen?",
+	"Antworten": ["Justus, Peter und Bob", "Justus, Dieter und Bob", "Jonas, Peter und Rob"]
+}
+{
+	"FID": 66,
+	"Schwierigkeit": 1,
+	"Frage": "Wie heisst der Besen von Bibi Blocksberg?",
+	"Antworten": ["Kartoffelbrei", "Baldrian", "Selleri"]
+}
+{
+	"FID": 67,
+	"Schwierigkeit": 2,
+	"Frage": "Welche Klasse in WoW lässt sich Tanken?",
+	"Antworten": ["Krieger", "Schurke", "Magier"]
+}
+{
+	"FID": 68,
+	"Schwierigkeit": 2,
+	"Frage": "Wie heisst der Held in Gothic 1?",
+	"Antworten": ["Weiss man nicht", "Lares", "Diego"]
 }

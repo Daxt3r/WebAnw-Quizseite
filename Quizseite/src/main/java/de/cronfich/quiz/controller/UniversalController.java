@@ -17,6 +17,17 @@ public class UniversalController {
 
 		return "index.html";
 	}
+	
+	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
+	public String getQuizPage() {
+		return "index.html";
+	}
+	
+	@RequestMapping(value = {"/highscore"}, method = RequestMethod.GET)
+	public String getHighscorePage()
+	{
+		return "highscore.html";
+	}
 }
 
 

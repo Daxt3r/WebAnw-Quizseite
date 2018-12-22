@@ -8,7 +8,29 @@
 		<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 		<title>Highscore Liste</title>
 	</head>
+	
+	<header>Highscore</header>
+	
+	<nav>
+		<a th:href="@{/}"> Startseite </a>&nbsp;
+		<a th:href="@{/highscore}"> Highscore </a>
+	</nav>
+	
 	<section>
-		<p>Hier entsteht die Highscore Seite
+		<h1>Tabelle der besten Ergebnisse</h1>
+		
+		<table border="1">
+			<tr>
+				<th>Plazierung</th>
+				<th>Name</th>
+				<th>Punktzahl</th>
+			</tr>
+			
+			<tr th:each="player : ${player}">
+				<td th:utext="${player.name}">...</td>
+				<td th:utext="${player.punktzahl}">...</td>
+			</tr>	
+		</table>
+		
 	</section>
 </html>
