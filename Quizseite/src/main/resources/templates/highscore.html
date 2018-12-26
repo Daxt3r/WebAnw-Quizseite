@@ -11,19 +11,27 @@
 	
 	<header>Highscore</header>
 	
+	<br>
+	
 	<nav>
 		<a th:href="@{/}"> Startseite </a>&nbsp;
 		<a th:href="@{/highscore}"> Highscore </a>
 	</nav>
 	
+	<br>
+	<br>
+	
 	<section>
-		<h1>Tabelle der besten Ergebnisse</h1>
 		
-		<table border="1">
+		<table id="self_table" border="1">
 			<tr>
-				<th>Plazierung</th>
-				<th>Name</th>
-				<th>Punktzahl</th>
+				<th id="self_th" colspan="3"> Tabelle mit allen Ergebnissen </th>
+			</tr>
+			
+			<tr>
+				<td class="self_tb"> Plazierung</td>
+				<td class="self_tb"> Name</td>
+				<td class="self_tb"> Punktzahl</td>
 			</tr>
 			
 			<tr th:each="player : ${player}">

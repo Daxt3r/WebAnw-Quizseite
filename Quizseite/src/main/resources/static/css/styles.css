@@ -23,6 +23,23 @@ button {
 	color: blue;
 }
 
+#self_table {
+	width: 100%;
+}
+
+#self_th {
+	font-family: Arial;
+	color: green;
+	font-size: 125%;
+	padding: 15px;
+}
+
+.self_tb {
+	font-family: Arial;
+	font-size: 110%;
+	padding: 10px;
+}
+
 h1 {
 	font-family: Arial;
 	color: grey;
