@@ -1,25 +1,25 @@
+* {
+	font-family: Arial;
+}
+
 header {
 	text-align: center;
-	font-family: Arial;	
 }
 
 nav {
 	text-align: center;
-	font-family: Arial;
 }
 
 section {
 	text-align: center;
-	font-family: Arial;
 }
+
 footer {
 	text-align: center;
-	font-family: Arial;
 }
 
 button {
 	text-align: center;
-	font-family: Arial;
 	color: blue;
 }
 
@@ -28,25 +28,18 @@ button {
 }
 
 #self_th {
-	font-family: Arial;
 	color: green;
 	font-size: 125%;
 	padding: 15px;
 }
 
 .self_tb {
-	font-family: Arial;
 	font-size: 110%;
 	padding: 10px;
 }
 
 h1 {
-	font-family: Arial;
 	color: grey;
-}
-
-p {
-	font-family: Arial;
 }
 
 

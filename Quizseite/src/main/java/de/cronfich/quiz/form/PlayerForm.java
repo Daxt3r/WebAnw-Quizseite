@@ -1,19 +1,12 @@
 package de.cronfich.quiz.form;
 
-public class HighscoreForm {
+public class PlayerForm {
 	
 	private int nPlayerID;
 	private int nRang;
 	private String sName;
 	private int nPktZahl;
-	
-	public HighscoreForm (int nPlayerID, int nRang, String sName, int nPktZahl) {
-		this.nPlayerID = nPlayerID;
-		this.nRang = nRang;
-		this.sName = sName;
-		this.nPktZahl = nPktZahl;
-	}
-	
+		
 	public int getnPlayerID() {
 		return nPlayerID;
 	}
