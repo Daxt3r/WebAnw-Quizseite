@@ -26,10 +26,10 @@ public class Player {
 	public void setnRang(int nRang) {
 		this.nRang = nRang;
 	}
-	public String getName() {
+	public String getsName() {
 		return sName;
 	}
-	public void setName(String name) {
+	public void setsName(String name) {
 		sName = name;
 	}
 	public int getnPktZahl() {

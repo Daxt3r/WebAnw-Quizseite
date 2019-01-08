@@ -9,19 +9,19 @@ import java.util.List;
 
 import de.cronfich.quiz.model.Player;
 
-public class Highscore {
-	
+public class Quiz {
+
 	 /**
 	  * Die Methode List die Werte aus rangliste.json aus und speichert diese in list_player; 
 	 * @throws IOException 
 	  */
-	public static List<Player> ReadRangliste() throws IOException, FileNotFoundException {
+	public static List<Quiz> ReadQuestions() throws IOException, FileNotFoundException {
 		
-		List<Player> tmp_liste = new ArrayList<>();
+		List<Quiz> tmp_quiz = new ArrayList<>();
 				
 		String sZeile;
 		String [] tmp_array;
-		String path = "C:\\Users\\Marcel\\git\\repository-quiz\\Quizseite\\src\\main\\resources\\static\\data\\rangliste.txt";
+		String path = "C:\\Users\\Marcel\\git\\repository-quiz\\Quizseite\\src\\main\\resources\\static\\data\\fragen.txt";
 		//String path = "Quizseite\\src\\main\\resources\\static\\data\\rangliste.txt";
 		FileReader fp_Rangliste = new FileReader(path);
 		BufferedReader br_Rangliste = new BufferedReader(fp_Rangliste);
@@ -32,10 +32,10 @@ public class Highscore {
 			
 			tmp_array = sZeile.split(";");
 			
-			tmp_liste.add(new Player(Integer.parseInt(tmp_array[0]), Integer.parseInt(tmp_array[1]), tmp_array[2], Integer.parseInt(tmp_array[3])));
+			//tmp_quiz.add(new Player(Integer.parseInt(tmp_array[0]), Integer.parseInt(tmp_array[1]), tmp_array[2], Integer.parseInt(tmp_array[3])));
 		}
 	    br_Rangliste.close();
 	    
-	    return tmp_liste;
+	    return tmp_quiz;
 	}
 }

@@ -36,9 +36,10 @@
 				<td class="self_tb"> Punktzahl</td>
 			</tr>
 			
-			<tr th:each="player : ${player}">
-				<td th:utext="${player.name}">...</td>
-				<td th:utext="${player.punktzahl}">...</td>
+			<tr th:each="player : ${players}">
+				<td th:utext="${player.nRang}">...</td>
+				<td th:utext="${player.sName}">...</td>
+				<td th:utext="${player.nPktZahl}">...</td>
 			</tr>	
 		</table>
 		
