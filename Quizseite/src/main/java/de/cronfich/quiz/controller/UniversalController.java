@@ -41,6 +41,7 @@ public class UniversalController {
 	 */
 	@RequestMapping(value = {"/highscore"}, method = RequestMethod.GET)
 	public String getHighscorePage(Model model) {
+		
 		try {
 			players = Highscore.ReadRangliste();
 		} catch (IOException e) {
