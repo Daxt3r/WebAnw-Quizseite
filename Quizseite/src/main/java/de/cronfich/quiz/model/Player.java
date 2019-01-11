@@ -1,28 +1,23 @@
 package de.cronfich.quiz.model;
 
-public class Player {
+public class Player implements Comparable<Object>{
 
-	private int nPlayerID;
 	private int nRang;
 	private String sName;
+	private String sMail;
 	private int nPktZahl;
 	
-	public Player (int nPlayerID, int nRang, String sName, int nPktZahl) {
-		this.nPlayerID = nPlayerID;
+	public Player (int nRang, String sName, int nPktZahl, String sMail) {
 		this.nRang = nRang;
 		this.sName = sName;
 		this.nPktZahl = nPktZahl;
+		this.sMail = sMail;
 	}
-	
-	public int getnPlayerID() {
-		return nPlayerID;
-	}
-	public void setnPlayerID(int nPlayerID) {
-		this.nPlayerID = nPlayerID;
-	}
+		
 	public int getnRang() {
 		return nRang;
 	}
+	
 	public void setnRang(int nRang) {
 		this.nRang = nRang;
 	}
@@ -37,5 +32,29 @@ public class Player {
 	}
 	public void setnPktZahl(int nPktZahl) {
 		this.nPktZahl = nPktZahl;
+	}
+	
+	public String getsMail() {
+		return sMail;
+	}
+
+	public void setsMail(String sMail) {
+		this.sMail = sMail;
+	}
+	
+	/** 
+	 * Erstellt das Datenformat, damit der Datensatz in die .txt Datei geschrieben werden kann
+	 * @return Datenformat, welches in die rangliste.txt geschrieben werden kann
+	 */
+	public String getDataformat() {
+		
+		String data = this.getnRang() + this.getsName() + ";" + this.getnPktZahl();
+		return data;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		Player other = (Player) o;
+		return Integer.compare(other.nPktZahl, this.nPktZahl);
 	}
 }

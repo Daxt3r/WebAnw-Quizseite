@@ -1,24 +1,17 @@
-package de.cronfich.quiz.model;
+package de.cronfich.quiz.form;
 
-public class Quiz {
+public class QuestionForm {
 
-	private int nQuizID;
+	private String sQuizID;
 	private int nSchwierigkeit;
 	private String sFrage;
 	private String [] array_Antworten = new String[3];
 	
-	public Quiz(int nQuizID, int nSchwierigkeit, String sFrage, String [] array_Antworten) {
-		this.nQuizID = nQuizID;
-		this.nSchwierigkeit = nSchwierigkeit;
-		this.sFrage = sFrage;
-		this.array_Antworten = array_Antworten;
+	public String getsQuizID() {
+		return sQuizID;
 	}
-	
-	public int getnQuizID() {
-		return nQuizID;
-	}
-	public void setnQuizID(int sQuizID) {
-		this.nQuizID = nQuizID;
+	public void setsQuizID(String sQuizID) {
+		this.sQuizID = sQuizID;
 	}
 	public int getnSchwierigkeit() {
 		return nSchwierigkeit;

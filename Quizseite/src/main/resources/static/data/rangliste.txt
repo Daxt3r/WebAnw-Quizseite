@@ -1,4 +1,4 @@
-PID;Rang;Name;Punkte
-1;1;Andy;9999
-2;2;Silke;8888
-3;3;Lea;7777
+Name;Punkte;Mail
+Silke;8888;wdadad@web.de
+Andy;9999;dasdasd@web.de
+Lea;7777;werdefda@web.de
