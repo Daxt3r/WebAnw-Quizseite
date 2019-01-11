@@ -3,6 +3,7 @@ package de.cronfich.quiz.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -59,6 +60,44 @@ public class UniversalController {
 		
 		return "quizende.html";
 	}
+	
+	/**
+	 * Leitet zur Seite weiter, auf der ein Spieler seine Daten löschen kann.
+	 * @return 
+	 */
+	@RequestMapping(value = {"/deletePlayer"}, method = RequestMethod.GET)
+	public String showDeletePage(Model model) {
+		PlayerForm playerForm = new PlayerForm();
+		model.addAttribute("playerForm", playerForm);
+		return "deletePlayer.html";
+	}
+	
+	@RequestMapping(value = {"/deletePlayer"}, method = RequestMethod.DELETE)
+	public String removePlayer(Model model, @ModelAttribute("playerForm") PlayerForm playerForm) {
+		
+		String sName = playerForm.getsName();
+		String sMail = playerForm.getsMail();
+		if(sName != null && sName.length() > 0 && sMail != null && sMail.length() > 0) {
+			
+			Iterator<Player> iter = players.iterator();
+			while(iter.hasNext()) {
+				Player player = iter.next();
+				
+				if(player.getsName().equals(sName) && player.getsMail().equals(sMail)) {
+					
+					int idx = players.indexOf(player); //Index des Spielers, der Gelöscht werden soll
+					players.remove(idx); //Spieler wird gelöscht
+					//rangliste.txt muss noch neu beschrieben werden
+					return "highscore.html";
+				}
+			}
+		
+		}
+		
+		model.addAttribute("errorMessage", errorMessage);
+		return "deletePlayer.html";
+	}
+	
 	
 	/**
 	 * Zeigt das Ergebnis des Quizes an und der Benutzer hat die Möglichkeit sich in der
