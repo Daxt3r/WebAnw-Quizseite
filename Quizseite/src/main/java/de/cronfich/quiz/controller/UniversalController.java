@@ -1,5 +1,6 @@
 package de.cronfich.quiz.controller;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -74,6 +75,17 @@ public class UniversalController {
 	
 	@RequestMapping(value = {"/deletePlayer"}, method = RequestMethod.DELETE)
 	public String removePlayer(Model model, @ModelAttribute("playerForm") PlayerForm playerForm) {
+		
+		//Wenn die Liste noch nicht eingelesen wurde, wird dies nachgeholt
+		if(players == null) {
+			try {
+				players = Highscore.ReadRangliste();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		
 		String sName = playerForm.getsName();
 		String sMail = playerForm.getsMail();
