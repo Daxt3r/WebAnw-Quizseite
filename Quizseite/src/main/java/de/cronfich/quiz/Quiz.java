@@ -1,7 +1,6 @@
 package de.cronfich.quiz;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -17,7 +16,7 @@ public class Quiz {
 	
 	//private static String path_fragen = "\\Quizseite\\src\\main\\resources\\static\\data\\rangliste.txt";
 	
-	private static List<Question> fragen_pool = new ArrayList<>();;
+	private static List<Question> fragen_pool = new ArrayList<>();
 	private static boolean init = false;
 	private static int MAX_FRAGEN = 10;
 	
