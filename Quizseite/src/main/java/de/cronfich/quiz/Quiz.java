@@ -62,7 +62,7 @@ public class Quiz {
 		
 		//In der Schleife werden 10 Fragen aus dem Pool in die fragen_liste eingefügt. Jede Frage kommt nur einmal drin vor
 		while(nFragen_Counter < MAX_FRAGEN) {
-			nZufallszahl = (int) (Math.random() * 10) + fragen_pool.size(); //Erstellt eine Zufallszahl, die nicht größer sein sollte als die Anzahl an Element im fragen_pool
+			nZufallszahl = (int) (Math.random() * 10); //Erstellt eine Zufallszahl, die nicht größer sein sollte als die Anzahl an Element im fragen_pool
 			//Sicherheitshalber wird nochmal geprüft, dass der Wert nicht größer ist
 			if(nZufallszahl < fragen_pool.size()) {
 				//Es wird geprüft ob die Frage aus dem fragen_pool schon in der HashMap drin ist. Wenn ja wird eine neue Zufallszahl generiert

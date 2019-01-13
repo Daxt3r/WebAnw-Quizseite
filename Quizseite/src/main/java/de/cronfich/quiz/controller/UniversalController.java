@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import de.cronfich.quiz.Highscore;
+import de.cronfich.quiz.Quiz;
 import de.cronfich.quiz.form.PlayerForm;
 import de.cronfich.quiz.model.Player;
 import de.cronfich.quiz.model.Question;
@@ -23,7 +25,10 @@ import de.cronfich.quiz.model.Question;
 public class UniversalController {
 	
 	private static List<Player> players = new ArrayList<Player>();
-	private static HashMap<Integer, Question> quesions = new HashMap<Integer, Question>();
+	private static HashMap<Integer, Question> questions = new HashMap<Integer, Question>();
+	
+	private static int nFragen_Counter = 0;
+	private static boolean bQuizStarted = false;
 	
 	@Value("${error.message}")
 	private String errorMessage;
@@ -37,11 +42,6 @@ public class UniversalController {
 	public String getWelcomePage() {
 
 		return "index.html";
-	}
-	
-	@RequestMapping(value = {"/quiz", "/quizseite"}, method = RequestMethod.GET)
-	public String getQuizStartPage() {
-		return "quizseite.html";
 	}
 	
 	/**
@@ -124,7 +124,8 @@ public class UniversalController {
 		
 		return "deletePlayer.html";
 	}
-
+	
+	
 	/**
 	 * Lädet die Fragen für die Quizseite
 	 * @return
@@ -132,6 +133,28 @@ public class UniversalController {
 	@RequestMapping(value = { "/quizseite" }, method = RequestMethod.GET)
 	public String getQuizPage(Model model) {
 		
+		 Question question = null;
+		 
+		//Initialisiert die Fragen
+		if(bQuizStarted == false) {
+			try {
+				questions = Quiz.ReadQuestions();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		
+			bQuizStarted = true;
+		}
+		
+		for(Map.Entry<Integer, Question> e : questions.entrySet()) {
+			 question = e.getValue();
+			 questions.remove(e.getKey()); //Benutzte Frage wird aus der Liste gelöscht
+			 break; //Schleife wird verlassen, da nur eine Frage aus der Liste benötigt wird
+		}
+		
+		model.addAttribute("question", question);
 		
 		return "quizseite.html";
 	}

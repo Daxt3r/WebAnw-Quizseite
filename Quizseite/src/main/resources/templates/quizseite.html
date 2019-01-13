@@ -16,23 +16,19 @@
 	<section>
 		<table id="self_table" border="1">
 			<tr>
-				<th id="self_th" colspan="2"> Tabelle mit allen Ergebnissen </th>
+				<th id="self_th" rowspan="4"> Tabelle mit allen Ergebnissen </th>
 			</tr>
-			
 			<tr>
-				<td class="self_tb"> Plazierung</td>
-				<td class="self_tb"> Name</td>
-				<td class="self_tb"> Punktzahl</td>
+				<td th:utext="${question.getsFrage}">...</td>
 			</tr>
-			
-			<tr th:each="question : ${questions}">
-				<td th:utext="${question.nRang}">...</td>
-				<td th:utext="${question.sName}">...</td>
-				<td th:utext="${question.nPktZahl}">...</td>
+			<tr>
+				<td th:utext="${question.array_Antworten[0]}">...</td>
+				<td th:utext="${question.array_Antworten[1]}">...</td>
+				<td th:utext="${question.array_Antworten[2]}">...</td>
 			</tr>	
 		</table>
 		
-		<form th:action="@{/deletePlayer}">
+		<form th:action="@{/quizseite}">
 			<input type="submit" value="Weiter"/>	
 		</form>
 		

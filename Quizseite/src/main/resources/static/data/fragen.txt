@@ -1,20 +1,19 @@
-FID;Schwierigkeit;Frage;R_Antwort;F1_Antwort;F2_Antwort
 1;1;In welcher Jahreszeit schneit es?;Sommer;Winter;Herbst
-51;1;Welcher Cowboy schiesst schneller als sein Schatten?;Lucky Luke;James Bond;John Marston
-52;1;Wie heisst der Hund von Obelix?;Idefix;Knufix;Rufnix
-53;2;Wie heisst die Stadt in der die Zeichentrickserie Family Guy spielt?;Quahog;Springfield;Cleveland
-54;1;Auf welchen Namen regaiert der Sprachassistent von Amazon?;Alexa;Alexandra;Alexis
-55;3;Wie heissen die Nachbarn der Familie Feuerstein aus der gleichnamigen Serie?;Geroellheimer;Groellheimer;Steinheimer
-56;2;Wie heisst die Schwester von Michel Loennberga?;Ida;Frida;Mathilda
-57;1;Wie heisst der Vater von Luke Skywalker?;Anakin Skywalker;Arthur Skywalker;Obi-Wan Skywalker
-58;1;Wie heisst der Autor von James Bond?;Ian Fleming;Neil Fleming;Chris Fleming
-59;1;Wer toetet Albus Dumbledore?;Snape;Draco Malfoy;Voldemort
-60;3;Wann erschien das Computerspiel Age of Empires 2?;1999;1998;1997
-61;2;Wie viele Dragon Balls muessen gesammelt werden um den heiligen Drachen Shenlong herbeizurufen?;7;5;8
-62;1;Wie heisst der Hund von den Simpsons?;Knecht Rubrecht;Waldo;Rudolf
-63;1;Wie heisst der Freund von Biene Maja?;Willi;Waldo;Walter
-64;3;Wie heisst die weibliche Begleiterin aus Unchartet 1?;Elena;Alena;Helena
-65;2;Wie heissen die 3 Fragezeichen?;Justus, Peter und Bob;Justus, Dieter und Bob;Jonas, Peter und Rob
-66;1;"Wie heisst der Besen von Bibi Blocksberg?;Kartoffelbrei;Baldrian;Selleri
-67;2;Welche Klasse in WoW lässt sich Tanken?;Krieger;Schurke;Magier
-68;2;Wie heisst der Held in Gothic 1?;Weiss man nicht;Lares;Diego
+2;1;Welcher Cowboy schiesst schneller als sein Schatten?;Lucky Luke;James Bond;John Marston
+3;1;Wie heisst der Hund von Obelix?;Idefix;Knufix;Rufnix
+4;2;Wie heisst die Stadt in der die Zeichentrickserie Family Guy spielt?;Quahog;Springfield;Cleveland
+5;1;Auf welchen Namen regaiert der Sprachassistent von Amazon?;Alexa;Alexandra;Alexis
+6;3;Wie heissen die Nachbarn der Familie Feuerstein aus der gleichnamigen Serie?;Geroellheimer;Groellheimer;Steinheimer
+7;2;Wie heisst die Schwester von Michel Loennberga?;Ida;Frida;Mathilda
+8;1;Wie heisst der Vater von Luke Skywalker?;Anakin Skywalker;Arthur Skywalker;Obi-Wan Skywalker
+9;1;Wie heisst der Autor von James Bond?;Ian Fleming;Neil Fleming;Chris Fleming
+10;1;Wer toetet Albus Dumbledore?;Snape;Draco Malfoy;Voldemort
+11;3;Wann erschien das Computerspiel Age of Empires 2?;1999;1998;1997
+12;2;Wie viele Dragon Balls muessen gesammelt werden um den heiligen Drachen Shenlong herbeizurufen?;7;5;8
+13;1;Wie heisst der Hund von den Simpsons?;Knecht Rubrecht;Waldo;Rudolf
+14;1;Wie heisst der Freund von Biene Maja?;Willi;Waldo;Walter
+15;3;Wie heisst die weibliche Begleiterin aus Unchartet 1?;Elena;Alena;Helena
+16;2;Wie heissen die 3 Fragezeichen?;Justus, Peter und Bob;Justus, Dieter und Bob;Jonas, Peter und Rob
+17;1;"Wie heisst der Besen von Bibi Blocksberg?;Kartoffelbrei;Baldrian;Selleri
+18;2;Welche Klasse in WoW lässt sich Tanken?;Krieger;Schurke;Magier
+19;2;Wie heisst der Held in Gothic 1?;Weiss man nicht;Lares;Diego
