@@ -134,17 +134,12 @@ public class UniversalController {
 		
 		 Question question = null;
 		 
-		//Initialisiert die Fragen
-		if(bQuizStarted == false) {
-			try {
-				questions = Quiz.ReadQuestions();
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		
-			bQuizStarted = true;
+		try {
+			questions = Quiz.ReadQuestions();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		
 		for(Map.Entry<Integer, Question> e : questions.entrySet()) {
