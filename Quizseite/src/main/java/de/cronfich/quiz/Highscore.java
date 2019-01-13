@@ -16,7 +16,7 @@ import de.cronfich.quiz.model.Player;
 
 public class Highscore {
 	
-	//private static String path_rangliste = "C:\\Users\\Marcel\\git\\repository-quiz\\Quizseite\\src\\main\\resources\\static\\data\\rangliste.txt";
+	  //private static String path_rangliste = "C:\\Users\\Marcel\\git\\repository-quiz\\Quizseite\\src\\main\\resources\\static\\data\\rangliste.txt";
 	private static String path_rangliste = "C:\\Users\\Tim\\git\\WebAnw-Quizseite\\Quizseite\\src\\main\\resources\\static\\data\\rangliste.txt";
 	//String path = "Quizseite\\src\\main\\resources\\static\\data\\rangliste.txt";
 	/**
