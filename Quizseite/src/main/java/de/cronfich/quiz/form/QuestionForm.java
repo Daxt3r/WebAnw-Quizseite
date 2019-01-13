@@ -2,16 +2,16 @@ package de.cronfich.quiz.form;
 
 public class QuestionForm {
 
-	private String sQuizID;
+	private int nQuizID;
 	private int nSchwierigkeit;
 	private String sFrage;
 	private String [] array_Antworten = new String[3];
 	
-	public String getsQuizID() {
-		return sQuizID;
+	public int getnQuizID() {
+		return nQuizID;
 	}
-	public void setsQuizID(String sQuizID) {
-		this.sQuizID = sQuizID;
+	public void setnQuizID(int nQuizID) {
+		this.nQuizID = nQuizID;
 	}
 	public int getnSchwierigkeit() {
 		return nSchwierigkeit;

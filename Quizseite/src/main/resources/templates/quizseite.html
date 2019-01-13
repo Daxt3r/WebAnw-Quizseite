@@ -14,7 +14,28 @@
 	</header>
 	
 	<section>
-		<p> Hier entsteht die Quizseite </p>
+		<table id="self_table" border="1">
+			<tr>
+				<th id="self_th" colspan="2"> Tabelle mit allen Ergebnissen </th>
+			</tr>
+			
+			<tr>
+				<td class="self_tb"> Plazierung</td>
+				<td class="self_tb"> Name</td>
+				<td class="self_tb"> Punktzahl</td>
+			</tr>
+			
+			<tr th:each="question : ${questions}">
+				<td th:utext="${question.nRang}">...</td>
+				<td th:utext="${question.sName}">...</td>
+				<td th:utext="${question.nPktZahl}">...</td>
+			</tr>	
+		</table>
+		
+		<form th:action="@{/deletePlayer}">
+			<input type="submit" value="Weiter"/>	
+		</form>
+		
 	</section>
 
 </html>

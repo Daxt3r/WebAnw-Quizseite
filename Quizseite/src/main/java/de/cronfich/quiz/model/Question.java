@@ -17,7 +17,7 @@ public class Question {
 	public int getnQuizID() {
 		return nQuizID;
 	}
-	public void setnQuizID(int sQuizID) {
+	public void setnQuizID(int nQuizID) {
 		this.nQuizID = nQuizID;
 	}
 	public int getnSchwierigkeit() {
