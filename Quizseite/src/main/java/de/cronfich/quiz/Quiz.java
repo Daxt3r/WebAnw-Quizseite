@@ -1,6 +1,7 @@
 package de.cronfich.quiz;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,7 +14,8 @@ import de.cronfich.quiz.model.Question;
 public class Quiz {
 
 	private static String path_fragen = "C:\\Users\\Marcel\\git\\repository-quiz\\Quizseite\\src\\main\\resources\\static\\data\\fragen.txt";
-	//String path = "Quizseite\\src\\main\\resources\\static\\data\\rangliste.txt";
+	
+	//private static String path_fragen = "\\Quizseite\\src\\main\\resources\\static\\data\\rangliste.txt";
 	
 	private static List<Question> fragen_pool = new ArrayList<>();;
 	private static boolean init = false;
@@ -62,7 +64,7 @@ public class Quiz {
 		
 		//In der Schleife werden 10 Fragen aus dem Pool in die fragen_liste eingefügt. Jede Frage kommt nur einmal drin vor
 		while(nFragen_Counter < MAX_FRAGEN) {
-			nZufallszahl = (int) (Math.random() * 10); //Erstellt eine Zufallszahl, die nicht größer sein sollte als die Anzahl an Element im fragen_pool
+			nZufallszahl = (int) (Math.random() * 10) + nFragen_Counter; //Erstellt eine Zufallszahl, die nicht größer sein sollte als die Anzahl an Element im fragen_pool
 			//Sicherheitshalber wird nochmal geprüft, dass der Wert nicht größer ist
 			if(nZufallszahl < fragen_pool.size()) {
 				//Es wird geprüft ob die Frage aus dem fragen_pool schon in der HashMap drin ist. Wenn ja wird eine neue Zufallszahl generiert

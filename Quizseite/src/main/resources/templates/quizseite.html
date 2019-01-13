@@ -14,13 +14,13 @@
 	</header>
 	
 	<section>
+	
 		<table id="self_table" border="1">
+
 			<tr>
-				<th id="self_th" rowspan="4"> Tabelle mit allen Ergebnissen </th>
+				<th  id="self_th" rowspan="2" th:utext="${question.sFrage}">...</th>
 			</tr>
-			<tr>
-				<td th:utext="${question.getsFrage}">...</td>
-			</tr>
+			
 			<tr>
 				<td th:utext="${question.array_Antworten[0]}">...</td>
 				<td th:utext="${question.array_Antworten[1]}">...</td>
@@ -29,7 +29,14 @@
 		</table>
 		
 		<form th:action="@{/quizseite}">
-			<input type="submit" value="Weiter"/>	
+			<fieldset>
+				<legend>Quiz</legend>
+			 	<input type="radio" name="Frage" th:value="${question.array_Antworten[0]}">
+			 	<input type="radio" name="Frage" th:value="${question.array_Antworten[1]}">
+			 	<input type="radio" name="Frage" th:value="${question.array_Antworten[2]}">
+			 
+			 	<input type="submit" value="Weiter"/>	
+			</fieldset>
 		</form>
 		
 	</section>

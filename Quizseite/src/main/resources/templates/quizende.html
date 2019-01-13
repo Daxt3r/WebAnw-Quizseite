@@ -23,14 +23,13 @@
 	
 		<h1>Herzlichen Glückwünsch du hast das Quiz beendet</h1>
 		
-		<form th:action="@{/showQuizendePage}"
+		<form th:action="@{/quizende}"
 			th:object="${playerForm}" method="POST">
 			Spielername:
 			<input type="text" th:field="*{sName}" />
 			<br/>
 			Mail:
 			<input type="text" th:field="*{sMail}" />
-			<input type="number" th:field="*{nPktzahl}" />
 			<br/>
 			<input type="submit" value="Create"/>	
 		</form>

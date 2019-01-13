@@ -27,7 +27,7 @@ public class UniversalController {
 	private static List<Player> players = new ArrayList<Player>();
 	private static HashMap<Integer, Question> questions = new HashMap<Integer, Question>();
 	
-	private static int nFragen_Counter = 0;
+	private static int nFragen_Counter = 1;
 	private static boolean bQuizStarted = false;
 	
 	@Value("${error.message}")
@@ -101,15 +101,14 @@ public class UniversalController {
 					int idx = players.indexOf(player); //Index des Spielers, der Gelöscht werden soll
 					players.remove(idx); //Spieler wird gelöscht
 					
+					//Schreibt die Rangliste erneut
 					try {
-						Highscore.WritteRanglisteAll(players);
+						Highscore.WritteRanglisteAll(players); 
 					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
-					} //Schreibt die Rangliste erneut
+					} 
 					
 					return "redirect:/highscore";
 				}
@@ -154,29 +153,25 @@ public class UniversalController {
 			 break; //Schleife wird verlassen, da nur eine Frage aus der Liste benötigt wird
 		}
 		
-		model.addAttribute("question", question);
-		
-		return "quizseite.html";
+		if(nFragen_Counter < 10) {
+			model.addAttribute("question", question);
+			nFragen_Counter++; //Counter für die Fragen wird erstellt
+			return "quizseite.html";
+		}
+		else
+		{
+			nFragen_Counter = 1; //Zähler wird zurück gesetzt
+			return "redirect:/quizende";
+		}
 	}
-	
-	
-	/**
-	 * 
-	 * @return Gibt den Namen des angeforderte html Dokuments zurück
-	 */
-	@RequestMapping(value = {"/quizende"}, method = RequestMethod.GET)
-	public String getQuizendePage() {
 		
-		return "quizende.html";
-	}
-	
 	/**
 	 * Zeigt das Ergebnis des Quizes an und der Benutzer hat die Möglichkeit sich in der
 	 * Rangliste zu verewigen
 	 * @param model
 	 * @return Gibt den Namen des angeforderte html Dokuments zurück
 	 */
-	@RequestMapping(value = { "/quizende" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/quizende" }/*, method = RequestMethod.POST*/)
 	public String savePlayer(Model model, @ModelAttribute("playerForm") PlayerForm playerForm) {
 		String sName = playerForm.getsName();
 		String sMail = playerForm.getsMail();

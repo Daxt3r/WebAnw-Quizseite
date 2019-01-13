@@ -57,7 +57,9 @@ public class Highscore {
 		PrintWriter pWriter = null;
 		pWriter = new PrintWriter(new BufferedWriter(new FileWriter(path_rangliste, true))); //Das true gibt an, dass die Daten nur angehangen werden sollen
 		
-		pWriter.println(player.getDataformat());
+		pWriter.println();
+		pWriter.flush();
+		pWriter.print(player.getDataformat());
 		pWriter.flush();
 		pWriter.close();
 				

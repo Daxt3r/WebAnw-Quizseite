@@ -1,3 +1,6 @@
 Name;Punkte;Mail
 Silke;8888;asdf@web.de
 Lea;7777;asdsf@web.de
+Marcel;0;test@web.de
+Tim;0;test2@web.de
+Marina;0;test3@web.de

@@ -10,24 +10,31 @@ public class QuestionForm {
 	public int getnQuizID() {
 		return nQuizID;
 	}
+	
 	public void setnQuizID(int nQuizID) {
 		this.nQuizID = nQuizID;
 	}
+	
 	public int getnSchwierigkeit() {
 		return nSchwierigkeit;
 	}
+	
 	public void setnSchwierigkeit(int nSchwierigkeit) {
 		this.nSchwierigkeit = nSchwierigkeit;
 	}
+	
 	public String getsFrage() {
 		return sFrage;
 	}
+	
 	public void setsFrage(String sFrage) {
 		this.sFrage = sFrage;
 	}
+	
 	public String[] getArray_Antworten() {
 		return array_Antworten;
 	}
+	
 	public void setArray_Antworten(String[] array_Antworten) {
 		this.array_Antworten = array_Antworten;
 	}
