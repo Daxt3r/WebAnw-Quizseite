@@ -13,8 +13,8 @@ import de.cronfich.quiz.model.Question;
 
 public class Quiz {
 
-	private static String path_fragen = "C:\\Users\\Marcel\\git\\repository-quiz\\Quizseite\\src\\main\\resources\\static\\data\\fragen.txt";
-	
+	//private static String path_fragen = "C:\\Users\\Marcel\\git\\repository-quiz\\Quizseite\\src\\main\\resources\\static\\data\\fragen.txt";
+	private static String path_fragen = "C:\\Users\\Tim\\git\\WebAnw-Quizseite\\Quizseite\\src\\main\\resources\\static\\data\\fragen.txt";
 	//private static String path_fragen = "\\Quizseite\\src\\main\\resources\\static\\data\\rangliste.txt";
 	
 	private static List<Question> fragen_pool = new ArrayList<>();;
