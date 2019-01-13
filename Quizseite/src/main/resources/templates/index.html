@@ -9,6 +9,7 @@
 			 The initial-scale=1.0 part sets the initial zoom level when the page is first loaded by the browser -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+		<script src="/js/javascripts.js"></script>
 		<title>Startseite</title>
 	</head>
 	
@@ -31,6 +32,7 @@
 		<form th:action="@{/quizseite}" method="GET">
 			<input type="submit" value="Starte Quiz"/>
 		</form>
+		<button onclick="myFunction()">Try it</button>
 	</section>
 	
 	<br>
