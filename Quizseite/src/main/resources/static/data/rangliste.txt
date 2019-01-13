@@ -1,4 +1,3 @@
 Name;Punkte;Mail
-Silke;8888;wdadad@web.de
-Andy;9999;dasdasd@web.de
-Lea;7777;werdefda@web.de
+Silke;8888;asdf@web.de
+Lea;7777;asdsf@web.de

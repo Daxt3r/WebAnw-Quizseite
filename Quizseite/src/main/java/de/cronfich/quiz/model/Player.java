@@ -21,6 +21,7 @@ public class Player implements Comparable<Object>{
 	public void setnRang(int nRang) {
 		this.nRang = nRang;
 	}
+	
 	public String getsName() {
 		return sName;
 	}
@@ -48,7 +49,7 @@ public class Player implements Comparable<Object>{
 	 */
 	public String getDataformat() {
 		
-		String data = this.getnRang() + this.getsName() + ";" + this.getnPktZahl();
+		String data = this.getsName() + ";" + this.getnPktZahl() + ";" + this.getsMail();
 		return data;
 	}
 
