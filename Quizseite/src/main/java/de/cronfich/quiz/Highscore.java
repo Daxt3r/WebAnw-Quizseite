@@ -16,8 +16,8 @@ import de.cronfich.quiz.model.Player;
 
 public class Highscore {
 	
-	  //private static String path_rangliste = "C:\\Users\\Marcel\\git\\repository-quiz\\Quizseite\\src\\main\\resources\\static\\data\\rangliste.txt";
-	private static String path_rangliste = "C:\\Users\\Tim\\git\\WebAnw-Quizseite\\Quizseite\\src\\main\\resources\\static\\data\\rangliste.txt";
+	private static String path_rangliste = "C:\\Users\\Marcel\\git\\repository-quiz\\Quizseite\\src\\main\\resources\\static\\data\\rangliste.txt";
+	//private static String path_rangliste = "C:\\Users\\Tim\\git\\WebAnw-Quizseite\\Quizseite\\src\\main\\resources\\static\\data\\rangliste.txt";
 	//String path = "Quizseite\\src\\main\\resources\\static\\data\\rangliste.txt";
 	/**
 	  * Die Methode List die Werte aus rangliste.txt ein und speichert diese in tmp_liste; 
@@ -37,8 +37,10 @@ public class Highscore {
 		
 		while((sZeile = br_Rangliste.readLine()) != null) {
 			
-			tmp_array = sZeile.split(";");
-			tmp_liste.add(new Player(Integer.parseInt("0"), tmp_array[0], Integer.parseInt(tmp_array[1]), tmp_array[2]));
+			if(!sZeile.isEmpty()) {
+				tmp_array = sZeile.split(";");
+				tmp_liste.add(new Player(Integer.parseInt("0"), tmp_array[0], Integer.parseInt(tmp_array[1]), tmp_array[2]));
+			}
 		}
 	    br_Rangliste.close();
 	    

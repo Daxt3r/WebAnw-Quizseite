@@ -28,6 +28,7 @@ public class UniversalController {
 	private static HashMap<Integer, Question> questions = new HashMap<Integer, Question>();
 	
 	private static int nFragen_Counter = 1;
+	private int nPunktePlayer = 0;
 	private static boolean bQuizStarted = false;
 	
 	@Value("${error.message}")
@@ -132,23 +133,29 @@ public class UniversalController {
 	@RequestMapping(value = { "/quizseite" }, method = RequestMethod.GET)
 	public String getQuizPage(Model model) {
 		
-		 Question question = null;
-		 
-		try {
-			questions = Quiz.ReadQuestions();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		Question question = null;
 		
-		for(Map.Entry<Integer, Question> e : questions.entrySet()) {
-			 question = e.getValue();
-			 questions.remove(e.getKey()); //Benutzte Frage wird aus der Liste gelöscht
-			 break; //Schleife wird verlassen, da nur eine Frage aus der Liste benötigt wird
+		//Es wird geprüft ob das Quiz schon gestartet wurde
+		if(!bQuizStarted) {
+			try {
+				questions = Quiz.ReadQuestions();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			bQuizStarted = true;
 		}
 		
 		if(nFragen_Counter < 10) {
+			
+			for(Map.Entry<Integer, Question> e : questions.entrySet()) {
+				 question = e.getValue();
+				 questions.remove(e.getKey()); //Benutzte Frage wird aus der Liste gelöscht
+				 break; //Schleife wird verlassen, da nur eine Frage aus der Liste benötigt wird
+			}
+			
+			nPunktePlayer += question.getnPunkte(); //Die Punkte der Fragen werden zusammenaddiert
 			model.addAttribute("question", question);
 			nFragen_Counter++; //Counter für die Fragen wird erstellt
 			return "quizseite.html";
@@ -159,14 +166,27 @@ public class UniversalController {
 			return "redirect:/quizende";
 		}
 	}
+	
+	/** 
+	 * Gibt die Punktzahl des Spielers aus
+	 */
+	@RequestMapping(value = { "/quizende" }, method = RequestMethod.GET)
+	public String showFinishPage(Model model) {
+		PlayerForm playerForm = new PlayerForm();
+		playerForm.setnPktZahl(nPunktePlayer);
 		
+		model.addAttribute("playerForm", playerForm);
+		model.addAttribute("playerPunkte", nPunktePlayer);
+		return "quizende.html";
+	}
+	
 	/**
 	 * Zeigt das Ergebnis des Quizes an und der Benutzer hat die Möglichkeit sich in der
 	 * Rangliste zu verewigen
 	 * @param model
 	 * @return Gibt den Namen des angeforderte html Dokuments zurück
 	 */
-	@RequestMapping(value = { "/quizende" }/*, method = RequestMethod.POST*/)
+	@RequestMapping(value = { "/quizende" }, method = RequestMethod.POST)
 	public String savePlayer(Model model, @ModelAttribute("playerForm") PlayerForm playerForm) {
 		String sName = playerForm.getsName();
 		String sMail = playerForm.getsMail();

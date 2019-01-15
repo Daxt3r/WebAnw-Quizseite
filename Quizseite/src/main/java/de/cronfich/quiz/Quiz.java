@@ -12,8 +12,8 @@ import de.cronfich.quiz.model.Question;
 
 public class Quiz {
 
-	 //private static String path_fragen = "C:\\Users\\Marcel\\git\\repository-quiz\\Quizseite\\src\\main\\resources\\static\\data\\fragen.txt";
-	private static String path_fragen = "C:\\Users\\Tim\\git\\WebAnw-Quizseite\\Quizseite\\src\\main\\resources\\static\\data\\fragen.txt";
+	private static String path_fragen = "C:\\Users\\Marcel\\git\\repository-quiz\\Quizseite\\src\\main\\resources\\static\\data\\fragen.txt";
+	//private static String path_fragen = "C:\\Users\\Tim\\git\\WebAnw-Quizseite\\Quizseite\\src\\main\\resources\\static\\data\\fragen.txt";
 	//private static String path_fragen = "\\Quizseite\\src\\main\\resources\\static\\data\\rangliste.txt";
 	
 	private static List<Question> fragen_pool = new ArrayList<>();
@@ -28,16 +28,14 @@ public class Quiz {
 		
 		String sZeile;
 		String [] tmp_array;
-		String [] tmp_antworten  = new String[3];
+		String [] tmp_antworten  = null;
 		
 		if(!init) {				
 			FileReader fp_Rangliste = new FileReader(path_fragen);
 			BufferedReader br_Rangliste = new BufferedReader(fp_Rangliste);
 		
-			br_Rangliste.readLine(); //Kopfzeile wird ausgelesen
-		
 			while((sZeile = br_Rangliste.readLine()) != null) {
-			
+				tmp_antworten  = new String[3];
 				tmp_array = sZeile.split(";");
 				//Antworten werden in das Array gespeichert
 				tmp_antworten[0] = tmp_array[3]; //Richtige Antwort

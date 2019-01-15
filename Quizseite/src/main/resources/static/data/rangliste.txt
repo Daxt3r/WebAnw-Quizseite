@@ -4,9 +4,10 @@ Lea;7777;asdsf@web.de
 Marcel;0;test@web.de
 Tim;0;test2@web.de
 Marina;0;test3@web.de
-<<<<<<< HEAD
-=======
 asdasd;0;dasdsa
 dadasd;0;adasdasdad
 tim;0;ewqeadad
->>>>>>> branch 'master' of https://github.com/Daxt3r/WebAnw-Quizseite.git
+dasdasd;0;sdfcsd@web.de
+dasd;0;dasdadadads@web.de
+
+Timelberger;0;tim@fichtner.de

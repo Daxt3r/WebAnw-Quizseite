@@ -3,13 +3,13 @@ package de.cronfich.quiz.model;
 public class Question {
 
 	private int nQuizID;
-	private int nSchwierigkeit;
+	private int nPunkte;
 	private String sFrage;
 	private String [] array_Antworten = new String[3];
 	
-	public Question(int nQuizID, int nSchwierigkeit, String sFrage, String [] array_Antworten) {
+	public Question(int nQuizID, int nPunkte, String sFrage, String [] array_Antworten) {
 		this.nQuizID = nQuizID;
-		this.nSchwierigkeit = nSchwierigkeit;
+		this.nPunkte = nPunkte;
 		this.sFrage = sFrage;
 		this.array_Antworten = array_Antworten;
 	}
@@ -22,12 +22,12 @@ public class Question {
 		this.nQuizID = nQuizID;
 	}
 	
-	public int getnSchwierigkeit() {
-		return nSchwierigkeit;
+	public int getnPunkte() {
+		return nPunkte;
 	}
 	
-	public void setnSchwierigkeit(int nSchwierigkeit) {
-		this.nSchwierigkeit = nSchwierigkeit;
+	public void setnPunkte(int nPunkte) {
+		this.nPunkte = nPunkte;
 	}
 	
 	public String getsFrage() {
