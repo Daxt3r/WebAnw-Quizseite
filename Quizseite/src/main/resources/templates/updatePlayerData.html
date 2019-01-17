@@ -3,14 +3,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="description" content="Startseite der Website">
-		<meta name="author" content="Tim Fichtner & Marcel Crone">
+		<meta name="author" content="Marcel Crone">
 		<!-- A <meta> viewport element gives the browser instructions on how to control the page's dimensions and scaling.
 			 The width=device-width part sets the width of the page to follow the screen-width of the device (which will vary depending on the device).
 			 The initial-scale=1.0 part sets the initial zoom level when the page is first loaded by the browser -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
-		<script src="/js/javascripts.js"></script>
-		<title>Startseite</title>
+		
+		<title>Daten aendern</title>
 	</head>
 	
 	<header>
@@ -23,17 +23,26 @@
 		<a th:href="@{/}"> Startseite </a> &nbsp;
 		<a th:href="@{/highscore}"> Highscore </a> &nbsp;
 		<a th:href="@{/deletePlayer}"> Eintrag loeschen </a> &nbsp;
-		<a th:href="@{/updatePlayerData}"> Daten aendern </a>
 	</nav>
 	
 	<br>
 	<br>
 	
 	<section>
-		<form th:action="@{/quizseite}" method="GET">
-			<input type="submit" value="Starte Quiz"/>
+		<form th:action="@{/updatePlayerData}" th:object="${playerForm}" method="PUT">
+			Spielername:
+			<input type="text" th:field="*{sName}" />
+			<br/>
+			Alte Mail:
+			<input type="text" th:field="*{sMail}" />
+			<br/>
+			Neue Mail:
+			<input type="text" th:field="*{sNewMail}" />
+			<br/>
+			<br/>
+			<input type="submit" value="Aendern"/>	
 		</form>
-		<button onclick="myFunction()">Try it</button>
+		<div th:if="${errorMessage}" th:utext="${errorMessage}" ></div>
 	</section>
 	
 	<br>
