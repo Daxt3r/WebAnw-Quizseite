@@ -5,6 +5,7 @@ public class Player implements Comparable<Object>{
 	private int nRang;
 	private String sName;
 	private String sMail;
+	private String sNewMail;
 	private int nPktZahl;
 	
 	public Player (int nRang, String sName, int nPktZahl, String sMail) {
@@ -57,5 +58,13 @@ public class Player implements Comparable<Object>{
 	public int compareTo(Object o) {
 		Player other = (Player) o;
 		return Integer.compare(other.nPktZahl, this.nPktZahl);
+	}
+
+	public String getsNewMail() {
+		return sNewMail;
+	}
+
+	public void setsNewMail(String sNewMail) {
+		this.sNewMail = sNewMail;
 	}
 }

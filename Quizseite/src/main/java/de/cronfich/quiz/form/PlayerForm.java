@@ -6,6 +6,7 @@ public class PlayerForm {
 	private String sName;
 	private int nPktZahl;
 	private String sMail;
+	private String sNewMail;
 
 	public int getnRang() {
 		return nRang;
@@ -37,5 +38,13 @@ public class PlayerForm {
 	
 	public String getsMail() {
 		return sMail;
+	}
+
+	public String getsNewMail() {
+		return sNewMail;
+	}
+
+	public void setsNewMail(String sNewMail) {
+		this.sNewMail = sNewMail;
 	}
 }

@@ -9,9 +9,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -37,6 +39,14 @@ public class UniversalController {
 	@Value("${error.message.PlayerNotFound}")
 	private String errorMessagePlayerNotFound;
 	
+	@Value("${error.message.PlayerNameRequired}")
+	private String errorMessagePlayerNameRequired;
+	
+	@Value("${error.message.OldMailRequired}")
+	private String errorMessageOldMailRequired;
+	
+	@Value("${error.message.NewMailRequired}")
+	private String errorMessageNewMailRequired;
 	
 	
 	@RequestMapping(path = "/")
@@ -186,7 +196,7 @@ public class UniversalController {
 	 * @param model
 	 * @return Gibt den Namen des angeforderte html Dokuments zurück
 	 */
-	@RequestMapping(value = { "/quizende" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/quizende" }, method = RequestMethod.PUT)
 	public String savePlayer(Model model, @ModelAttribute("playerForm") PlayerForm playerForm) {
 		String sName = playerForm.getsName();
 		String sMail = playerForm.getsMail();
@@ -209,6 +219,59 @@ public class UniversalController {
 		}
 		model.addAttribute("errorMessage", errorMessage);
 		return "quizende.html";
+	}
+	
+	@RequestMapping(value = { "/updatePlayerData"}, method = RequestMethod.GET)
+	public String getUpdatePage(Model model) {
+		
+		PlayerForm playerForm = new PlayerForm();
+		model.addAttribute("playerForm", playerForm);
+		return "updatePlayerData.html";
+	}
+	
+	
+	@RequestMapping(value = { "/updatePlayerData"}, 
+					method = RequestMethod.PUT,
+					produces = MediaType.APPLICATION_JSON_VALUE)
+	public String updatePlayer(Model model, @RequestBody Player player1) {
+		
+		String sName = player1.getsName();
+		String sMail = player1.getsMail();
+		String sNewMail = player1.getsNewMail();
+		
+		if(sName != null && sName.length() > 0 && sMail != null && sMail.length() > 0 && sNewMail != null && sNewMail.length() > 0) {
+			
+			Iterator<Player> iter = players.iterator();
+			while(iter.hasNext()) {
+				Player player = iter.next();
+				
+				if(player.getsName().equals(sName) && player.getsMail().equals(sMail)) {
+										
+					player.setsMail(sNewMail); //Neue Mail vom Spieler wird gesetzt
+					
+					//Schreibt die Rangliste erneut
+					try {
+						Highscore.WritteRanglisteAll(players); 
+					} catch (FileNotFoundException e) {
+						e.printStackTrace();
+					} catch (IOException e) {
+						e.printStackTrace();
+					} 
+					
+					return "redirect:/highscore";
+				}
+			}
+		}
+		else if (sName == null || sName.length() == 0)
+			model.addAttribute("errorMessage", errorMessagePlayerNameRequired);
+		else if(sMail == null || sName.length() == 0)
+			model.addAttribute("errorMessage", errorMessageOldMailRequired);
+		else if(sNewMail == null || sNewMail.length() == 0)
+			model.addAttribute("errorMessage", errorMessageNewMailRequired);
+		else
+			model.addAttribute("errorMessage", errorMessagePlayerNotFound);
+		
+		return "updatePlayerData.html";
 	}
 }
 

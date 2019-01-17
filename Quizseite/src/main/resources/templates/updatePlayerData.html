@@ -9,7 +9,7 @@
 			 The initial-scale=1.0 part sets the initial zoom level when the page is first loaded by the browser -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
-		
+		<script src="/js/javascripts.js"></script>
 		<title>Daten aendern</title>
 	</head>
 	
@@ -29,19 +29,14 @@
 	<br>
 	
 	<section>
-		<form th:action="@{/updatePlayerData}" th:object="${playerForm}" method="PUT">
-			Spielername:
-			<input type="text" th:field="*{sName}" />
-			<br/>
-			Alte Mail:
-			<input type="text" th:field="*{sMail}" />
-			<br/>
-			Neue Mail:
-			<input type="text" th:field="*{sNewMail}" />
-			<br/>
-			<br/>
-			<input type="submit" value="Aendern"/>	
-		</form>
+		<fieldset id="json">
+			<legend>Player:</legend>
+			Name: <input type="text" id="sName" />
+			Mail: <input type="text" id="sMail" />
+			Neue Mail: <input type="text" id="sNewMail" />
+		</fieldset>
+		<button onclick="sendPUT()"> Daten aendern </button>
+		
 		<div th:if="${errorMessage}" th:utext="${errorMessage}" ></div>
 	</section>
 	
