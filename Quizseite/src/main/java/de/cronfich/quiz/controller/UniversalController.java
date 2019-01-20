@@ -172,7 +172,8 @@ public class UniversalController {
 		}
 		else
 		{
-			nFragen_Counter = 1; //Zähler wird zurück gesetzt
+			nFragen_Counter = 1; //Zähler wird zurückgesetzt
+			bQuizStarted = false; //Wird zurückgesetzt, damit neue Fragen eingelesen werden können
 			return "redirect:/quizende";
 		}
 	}
@@ -213,7 +214,7 @@ public class UniversalController {
 			players.add(newPlayer); //Neuer Spieler wird in die Liste hinzugefügt
 			
 			Highscore.sortList_setRang(players);
-		    
+		    nPunktePlayer = 0; //Die Punkte werden zurückgesetzt
 			return "redirect:/highscore";
 		}
 		model.addAttribute("errorMessage", errorMessage);
