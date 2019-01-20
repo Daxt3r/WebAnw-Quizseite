@@ -1,5 +1,6 @@
-function myFunction() {
-	alert("Hello, I'm an alert box!");
+function hinweisFunction() {
+	alert("Nach Beendigung vom Quiz werden Name und E-Mail erfordert. Diese können wieder manuell gelöscht werden.");
+	document.getElementById("hinweis").innerHTML = "Hinweis ist gelesen, danke!";
 }
 
 function sendPUT() {
