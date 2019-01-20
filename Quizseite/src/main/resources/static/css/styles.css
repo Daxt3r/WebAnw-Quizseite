@@ -42,4 +42,20 @@ h1 {
 	color: grey;
 }
 
+#hinweis {
+	color: red;
+}
 
+.parent {
+	text-align: center;
+}
+
+.parent > ul {
+	display: inline-block;
+	list-style-type: circle;
+}
+
+.centerTable {
+	margin-left: auto;
+	margin-right: auto;
+}
