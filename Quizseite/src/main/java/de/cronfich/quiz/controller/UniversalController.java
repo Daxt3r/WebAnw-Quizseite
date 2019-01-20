@@ -172,7 +172,8 @@ public class UniversalController {
 		}
 		else
 		{
-			nFragen_Counter = 1; //Zähler wird zurück gesetzt
+			nFragen_Counter = 1; //Zähler wird zurückgesetzt
+			bQuizStarted = false; //Wird zurückgesetzt, damit neue Fragen eingelesen werden können
 			return "redirect:/quizende";
 		}
 	}
@@ -196,15 +197,14 @@ public class UniversalController {
 	 * @param model
 	 * @return Gibt den Namen des angeforderte html Dokuments zurück
 	 */
-	@RequestMapping(value = { "/quizende" }, method = RequestMethod.PUT)
+	@RequestMapping(value = { "/quizende" }, method = RequestMethod.POST)
 	public String savePlayer(Model model, @ModelAttribute("playerForm") PlayerForm playerForm) {
 		String sName = playerForm.getsName();
 		String sMail = playerForm.getsMail();
-		int nPktzahl = playerForm.getnPktZahl();
 		
 		if(sName != null && sName.length() > 0 && sMail != null && sMail.length() > 0) {
 			
-			Player newPlayer = new Player(0, sName, nPktzahl, sMail);
+			Player newPlayer = new Player(0, sName, nPunktePlayer, sMail);
 			try {
 				Highscore.WritteRangliste(newPlayer);
 			} catch (IOException e) {
@@ -214,7 +214,7 @@ public class UniversalController {
 			players.add(newPlayer); //Neuer Spieler wird in die Liste hinzugefügt
 			
 			Highscore.sortList_setRang(players);
-		    
+		    nPunktePlayer = 0; //Die Punkte werden zurückgesetzt
 			return "redirect:/highscore";
 		}
 		model.addAttribute("errorMessage", errorMessage);

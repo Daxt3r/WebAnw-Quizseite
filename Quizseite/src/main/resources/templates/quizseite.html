@@ -10,35 +10,37 @@
 	</head>
 	
 	<header>
-		<img src="images/QuizTitelbild.png" alt="Titelbild">
+		<img src="images/QuizTitelbild.jpg" alt="Titelbild">
 	</header>
 	
-	<section>
+	<body>
+		<section>
 	
-		<table id="self_table" border="1">
+			<table id="self_table" border="1">
 
-			<tr>
-				<th  id="self_th" rowspan="2" th:utext="${question.sFrage}">...</th>
-			</tr>
+				<tr>
+					<th  id="self_th" rowspan="2" th:utext="${question.sFrage}">...</th>
+				</tr>
 			
-			<tr>
-				<td th:utext="${question.array_Antworten[0]}">...</td>
-				<td th:utext="${question.array_Antworten[1]}">...</td>
-				<td th:utext="${question.array_Antworten[2]}">...</td>
-			</tr>	
-		</table>
+				<tr>
+					<td th:utext="${question.array_Antworten[0]}">...</td>
+					<td th:utext="${question.array_Antworten[1]}">...</td>
+					<td th:utext="${question.array_Antworten[2]}">...</td>
+				</tr>	
+			</table>
 		
-		<form th:action="@{/quizseite}">
-			<fieldset>
-				<legend>Quiz</legend>
-			 	<input type="radio" name="Frage" th:value="${question.array_Antworten[0]}">
-			 	<input type="radio" name="Frage" th:value="${question.array_Antworten[1]}">
-			 	<input type="radio" name="Frage" th:value="${question.array_Antworten[2]}">
+			<form th:action="@{/quizseite}">
+				<fieldset>
+					<legend>Quiz</legend>
+			 		<input type="radio" name="Frage" th:value="${question.array_Antworten[0]}">
+			 		<input type="radio" name="Frage" th:value="${question.array_Antworten[1]}">
+			 		<input type="radio" name="Frage" th:value="${question.array_Antworten[2]}">
 			 
-			 	<input type="submit" value="Weiter"/>	
-			</fieldset>
-		</form>
+			 		<input type="submit" value="Weiter"/>	
+				</fieldset>
+			</form>
 		
-	</section>
-
+		</section>
+	</body>
+	
 </html>

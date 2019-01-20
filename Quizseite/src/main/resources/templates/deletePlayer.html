@@ -13,30 +13,32 @@
 	</head>
 	
 	<header>
-		<img src="images/QuizTitelbild.png" alt="Titelbild">
+		<img src="images/QuizTitelbild.jpg" alt="Titelbild">
 	</header>
 		
 	<br/>
 	<br/>
 	
-	<section>
+	<body>
+		<section>
 	
-		<h1>Entferne Daten</h1>
+			<h1>Entferne Daten</h1>
 		
-		<form th:action="@{/deletePlayer}"
-			th:object="${playerForm}" method="POST" th:method="DELETE">
-			Spielername:
-			<input type="text" th:field="*{sName}" />
-			<br/>
-			Mail:
-			<input type="text" th:field="*{sMail}" />
-			<br/>
-			<input type="submit" value="Delete"/>	
-		</form>
-		<!-- Check if removeMessage is not null and not empty -->
-		<div th:if="${errorMessage}" th:utext="${errorMessage}" ></div>
+			<form th:action="@{/deletePlayer}"
+				th:object="${playerForm}" method="POST" th:method="DELETE">
+				Spielername:
+				<input type="text" th:field="*{sName}" />
+				<br/>
+				Mail:
+				<input type="text" th:field="*{sMail}" />
+				<br/>
+				<input type="submit" value="Delete"/>	
+			</form>
+			<!-- Check if removeMessage is not null and not empty -->
+			<div th:if="${errorMessage}" th:utext="${errorMessage}" ></div>
 	
-	</section>
+		</section>
+	</body>
 	
 	<br>
 	<br>
