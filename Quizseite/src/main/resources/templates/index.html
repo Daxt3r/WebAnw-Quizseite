@@ -39,6 +39,8 @@
 			<p id="hinweis">Bitte den Hinweis lesen!</p>
 			<button onclick="hinweisFunction()">Hinweis</button>
 			
+			<div th:utext="${quote}"></div>
+			
 			<p>
 				<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="CSS ist valide!" />
 			</p>
@@ -55,7 +57,7 @@
 				</ul>
 			</div>
 			
-			<table border ="1" class="centerTable">
+			<table border="1" class="centerTable">
 				<tr>
 					<th colspan="2">Konsolen</th>
 				</tr>
@@ -73,6 +75,7 @@
 					<td>WiiU</td>
 				</tr>
 			</table>
+			
 		</section>
 	</body>
 	<br>

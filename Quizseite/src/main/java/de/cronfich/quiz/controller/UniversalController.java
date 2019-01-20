@@ -17,12 +17,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.RestTemplate;
 
 import de.cronfich.quiz.Highscore;
 import de.cronfich.quiz.Quiz;
 import de.cronfich.quiz.form.PlayerForm;
 import de.cronfich.quiz.model.Player;
 import de.cronfich.quiz.model.Question;
+import de.cronfich.quiz.quoteAPI.Quote;
 
 @Controller
 public class UniversalController {
@@ -53,8 +55,11 @@ public class UniversalController {
 	
 	
 	@RequestMapping(path = "/")
-	public String getWelcomePage() {
-
+	public String getWelcomePage(Model model) {
+		
+		RestTemplate restTemplate = new RestTemplate();
+		Quote quote = restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
+		model.addAttribute("quote", quote.toString());
 		return "index.html";
 	}
 	
