@@ -22,8 +22,8 @@
 	<section>
 	
 		<h1>Herzlichen Glückwünsch du hast das Quiz beendet</h1>
-		
-		<div th:with="someVariable=${playerPunkte}"></div>
+		<p>Deine Punke: </p>
+		<div th:utext="${playerPunkte}"></div>
 		
 		<form th:action="@{/quizende}" th:object="${playerForm}" method="POST">
 			Spielername:

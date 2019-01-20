@@ -196,15 +196,14 @@ public class UniversalController {
 	 * @param model
 	 * @return Gibt den Namen des angeforderte html Dokuments zurück
 	 */
-	@RequestMapping(value = { "/quizende" }, method = RequestMethod.PUT)
+	@RequestMapping(value = { "/quizende" }, method = RequestMethod.POST)
 	public String savePlayer(Model model, @ModelAttribute("playerForm") PlayerForm playerForm) {
 		String sName = playerForm.getsName();
 		String sMail = playerForm.getsMail();
-		int nPktzahl = playerForm.getnPktZahl();
 		
 		if(sName != null && sName.length() > 0 && sMail != null && sMail.length() > 0) {
 			
-			Player newPlayer = new Player(0, sName, nPktzahl, sMail);
+			Player newPlayer = new Player(0, sName, nPunktePlayer, sMail);
 			try {
 				Highscore.WritteRangliste(newPlayer);
 			} catch (IOException e) {
