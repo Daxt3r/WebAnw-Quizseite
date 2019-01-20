@@ -19,24 +19,26 @@
 	<br/>
 	<br/>
 	
-	<section>
+	<body>
+		<section>
 	
-		<h1>Herzlichen Glückwünsch du hast das Quiz beendet</h1>
-		<p>Deine Punke: </p>
-		<div th:utext="${playerPunkte}"></div>
+			<h1>Herzlichen Glückwünsch du hast das Quiz beendet</h1>
+			<p>Deine Punke: </p>
+			<div th:utext="${playerPunkte}"></div>
 		
-		<form th:action="@{/quizende}" th:object="${playerForm}" method="POST">
-			Spielername:
-			<input type="text" th:field="*{sName}" />
-			<br/>
-			Mail:
-			<input type="text" th:field="*{sMail}" />
-			<br/>
-			<input type="submit" value="Create"/>	
-		</form>
-		<div th:if="${errorMessage}" th:utext="${errorMessage}" ></div>
+			<form th:action="@{/quizende}" th:object="${playerForm}" method="POST">
+				Spielername:
+				<input type="text" th:field="*{sName}" />
+				<br/>
+				Mail:
+				<input type="text" th:field="*{sMail}" />
+				<br/>
+				<input type="submit" value="Create"/>	
+			</form>
+			<div th:if="${errorMessage}" th:utext="${errorMessage}" ></div>
 	
-	</section>
+		</section>
+	</body>
 	
 	<br>
 	<br>

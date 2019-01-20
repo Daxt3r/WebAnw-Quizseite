@@ -28,17 +28,19 @@
 	<br>
 	<br>
 	
-	<section>
-		<fieldset id="json">
-			<legend>Player:</legend>
-			Name: <input type="text" id="sName" />
-			Mail: <input type="text" id="sMail" />
-			Neue Mail: <input type="text" id="sNewMail" />
-		</fieldset>
-		<button onclick="sendPUT()"> Daten aendern </button>
+	<body>
+		<section>
+			<fieldset id="json">
+				<legend>Player:</legend>
+				Name: <input type="text" id="sName" />
+				Mail: <input type="text" id="sMail" />
+				Neue Mail: <input type="text" id="sNewMail" />
+			</fieldset>
+			<button onclick="sendPUT()"> Daten aendern </button>
 		
-		<div th:if="${errorMessage}" th:utext="${errorMessage}" ></div>
-	</section>
+			<div th:if="${errorMessage}" th:utext="${errorMessage}" ></div>
+		</section>
+	</body>
 	
 	<br>
 	<br>

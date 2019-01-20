@@ -25,25 +25,28 @@
 	<br>
 	<br>
 	
-	<section>
+	<body>
+		<section>
 		
-		<table id="self_table" border="1">
-			<tr>
-				<th id="self_th" colspan="3"> Tabelle mit allen Ergebnissen </th>
-			</tr>
+			<table id="self_table" border="1">
+				<tr>
+					<th id="self_th" colspan="3"> Tabelle mit allen Ergebnissen </th>
+				</tr>
 			
-			<tr>
-				<td class="self_tb"> Plazierung</td>
-				<td class="self_tb"> Name</td>
-				<td class="self_tb"> Punktzahl</td>
-			</tr>
+				<tr>
+					<td class="self_tb"> Plazierung</td>
+					<td class="self_tb"> Name</td>
+					<td class="self_tb"> Punktzahl</td>
+				</tr>
 			
-			<tr th:each="player : ${players}">
-				<td th:utext="${player.nRang}">...</td>
-				<td th:utext="${player.sName}">...</td>
-				<td th:utext="${player.nPktZahl}">...</td>
-			</tr>	
-		</table>
+				<tr th:each="player : ${players}">
+					<td th:utext="${player.nRang}">...</td>
+					<td th:utext="${player.sName}">...</td>
+					<td th:utext="${player.nPktZahl}">...</td>
+				</tr>	
+			</table>
 		
-	</section>
+		</section>
+	</body>
+	
 </html>
