@@ -15,6 +15,16 @@ function versteckFunction() {
 		}
 }
 
+function sendPUT2() {
+	var url = "http://localhost:8080/updatePlayerData/?sName=" 
+		+ document.getElementById("sName").value + "&sMail=" + document.getElementById("sMail").value
+		+ "&sNewMail=" + document.getElementById("sNewMail").value;
+	
+	fetch(url, {
+		method : "PUT"
+	})
+}
+
 function sendPUT() {
 	var contentType;
 	var url ="http://localhost:8080/updatePlayerData"; //url an die die Daten geschickt werden sollen

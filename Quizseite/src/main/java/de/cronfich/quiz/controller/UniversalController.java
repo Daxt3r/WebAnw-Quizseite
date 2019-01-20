@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import de.cronfich.quiz.Highscore;
 import de.cronfich.quiz.Quiz;
@@ -28,6 +29,8 @@ public class UniversalController {
 	
 	private static List<Player> players = new ArrayList<Player>();
 	private static HashMap<Integer, Question> questions = new HashMap<Integer, Question>();
+	
+	private String APIPrefix = "http://localhost:8080";
 	
 	private static int nFragen_Counter = 1;
 	private int nPunktePlayer = 0;
@@ -221,7 +224,7 @@ public class UniversalController {
 		return "quizende.html";
 	}
 	
-	@RequestMapping(value = { "/updatePlayerData"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/updatePlayerData"}, method = RequestMethod.GET)
 	public String getUpdatePage(Model model) {
 		
 		PlayerForm playerForm = new PlayerForm();
@@ -230,14 +233,14 @@ public class UniversalController {
 	}
 	
 	
-	@RequestMapping(value = { "/updatePlayerData"}, 
+	@RequestMapping(path = "/updatePlayerData", 
 					method = RequestMethod.PUT,
 					produces = MediaType.APPLICATION_JSON_VALUE)
-	public String updatePlayer(Model model, @RequestBody Player player1) {
+	public String updatePlayer(Model model, @RequestParam("sName") String sName1, @RequestParam("sMail") String sMail1, @RequestParam("sNewMail") String sNewMail1) {
 		
-		String sName = player1.getsName();
-		String sMail = player1.getsMail();
-		String sNewMail = player1.getsNewMail();
+		String sName = sName1;
+		String sMail = sMail1;
+		String sNewMail = sNewMail1;
 		
 		if(sName != null && sName.length() > 0 && sMail != null && sMail.length() > 0 && sNewMail != null && sNewMail.length() > 0) {
 			
