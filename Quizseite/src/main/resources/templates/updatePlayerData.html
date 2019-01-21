@@ -13,6 +13,7 @@
 		<title>Daten aendern</title>
 	</head>
 	
+	<body>	
 	<header>
 		<img src="images/QuizTitelbild.jpg" alt="Titelbild">
 	</header>
@@ -28,7 +29,6 @@
 	<br>
 	<br>
 	
-	<body>
 		<section>
 			<form th:action="@{/updatePlayerData}" >
 				Spielername:
@@ -45,7 +45,6 @@
 			<div th:if="${errorMessage}" th:utext="${errorMessage}" ></div>
 		
 		</section>
-	</body>
 	
 	<br>
 	<br>
@@ -53,5 +52,6 @@
 	<footer>
 		<a href="html/impressum.html" TARGET="_blank">Impressum</a>
 	</footer>
-
+	</body>
+	
 </html>

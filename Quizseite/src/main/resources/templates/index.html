@@ -13,6 +13,7 @@
 		<title>Startseite</title>
 	</head>
 	
+	<body>
 	<header>
 		<img src="images/QuizTitelbild.jpg" alt="Titelbild">
 	</header>
@@ -29,7 +30,6 @@
 	<br>
 	<br>
 	
-	<body>
 		<section>
 	
 			<form th:action="@{/quizseite}" method="GET">
@@ -45,7 +45,7 @@
 				<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="CSS ist valide!" />
 			</p>
 		
-			<img style="border0;width:364px;height:193px" src="images/StdPlanSOSE18.jpg" alt="Stundenplan Sommersemester2018">
+			<img style="width:364px;height:193px" src="images/StdPlanSOSE18.jpg" alt="Stundenplan Sommersemester2018">
 			
 			<p><button onclick="versteckFunction()">Clubs in Köln ausblenden</button></p>
 			<div class="parent" id="verstecken">
@@ -57,7 +57,7 @@
 				</ul>
 			</div>
 			
-			<table border="1" class="centerTable">
+			<table class="centerTable">
 				<tr>
 					<th colspan="2">Konsolen</th>
 				</tr>
@@ -77,12 +77,14 @@
 			</table>
 			
 		</section>
-	</body>
-	<br>
-	<br>
-	
+
+           <br>
+           <br>
+
+		
 	<footer>
 		<a href="html/impressum.html" TARGET="_blank">Impressum</a>
 	</footer>
 
+	</body>
 </html>

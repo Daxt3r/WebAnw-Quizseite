@@ -25,6 +25,7 @@ button {
 
 #self_table {
 	width: 100%;
+	border: 1px solid black;
 }
 
 #self_th {
@@ -56,6 +57,7 @@ h1 {
 }
 
 .centerTable {
+	border: 1px solid black;
 	margin-left: auto;
 	margin-right: auto;
 }
