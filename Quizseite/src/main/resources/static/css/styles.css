@@ -25,7 +25,6 @@ button {
 
 #self_table {
 	width: 100%;
-	border: 1px solid black;
 }
 
 #self_th {
@@ -56,8 +55,12 @@ h1 {
 	list-style-type: circle;
 }
 
+th, td {
+	border-style: solid;
+ 	border-width: 1px;
+}
+
 .centerTable {
-	border: 1px solid black;
 	margin-left: auto;
 	margin-right: auto;
 }
