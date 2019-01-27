@@ -14,28 +14,28 @@
 	</head>
 	
 	<body>
-	<header>
-		<img src="images/QuizTitelbild.jpg" alt="Titelbild">
-	</header>
+		<header>
+			<img src="images/QuizTitelbild.jpg" alt="Titelbild">
+		</header>
 	
-	<br>
+		<br>
 	
-	<nav>
-		<a th:href="@{/}"> Startseite </a> &nbsp;
-		<a th:href="@{/highscore}"> Highscore </a> &nbsp;
-		<a th:href="@{/deletePlayer}"> Eintrag loeschen </a> &nbsp;
-		<a th:href="@{/updatePlayerData}"> Daten aendern </a>
-	</nav>
+		<nav>
+			<a th:href="@{/}"> Startseite </a> &nbsp;
+			<a th:href="@{/highscore}"> Highscore </a> &nbsp;
+			<a th:href="@{/deletePlayer}"> Eintrag loeschen </a> &nbsp;
+			<a th:href="@{/updatePlayerData}"> Daten aendern </a>
+		</nav>
 	
-	<br>
-	<br>
+		<br>
+		<br>
 	
 		<section>
 	
-			<form th:action="@{/quizseite}" method="GET">
+			<form th:action="@{/quizseite}" th:method="GET">
 				<input type="submit" value="Starte Quiz"/>
 			</form>
-				
+			
 			<p id="hinweis">Bitte den Hinweis lesen!</p>
 			<button onclick="hinweisFunction()">Hinweis</button>
 			
@@ -74,17 +74,15 @@
 				<tr>
 					<td>WiiU</td>
 				</tr>
-			</table>
-			
+			</table>	
 		</section>
 
-           <br>
-           <br>
+        <br>
+        <br>
 
-		
-	<footer>
-		<a href="html/impressum.html" TARGET="_blank">Impressum</a>
-	</footer>
+		<footer>
+			<a href="html/impressum.html" TARGET="_blank">Impressum</a>
+		</footer>
 
 	</body>
 </html>

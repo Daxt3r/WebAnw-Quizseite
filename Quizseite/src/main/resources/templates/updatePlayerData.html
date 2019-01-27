@@ -9,49 +9,52 @@
 			 The initial-scale=1.0 part sets the initial zoom level when the page is first loaded by the browser -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="/css/styles.css" />
-		<script src="/js/javascripts.js"></script>
 		<title>Daten aendern</title>
 	</head>
 	
 	<body>	
-	<header>
-		<img src="images/QuizTitelbild.jpg" alt="Titelbild">
-	</header>
+		<header>
+			<img src="images/QuizTitelbild.jpg" alt="Titelbild">
+		</header>
 	
-	<br>
+		<br>
 	
-	<nav>
-		<a th:href="@{/}"> Startseite </a> &nbsp;
-		<a th:href="@{/highscore}"> Highscore </a> &nbsp;
-		<a th:href="@{/deletePlayer}"> Eintrag loeschen </a> &nbsp;
-	</nav>
+		<nav>
+			<a th:href="@{/}"> Startseite </a> &nbsp;
+			<a th:href="@{/highscore}"> Highscore </a> &nbsp;
+			<a th:href="@{/deletePlayer}"> Eintrag loeschen </a> &nbsp;
+			<a th:href="@{/updatePlayerData}"> Daten aendern </a>
+		</nav>
 	
-	<br>
-	<br>
+		<br>
+		<br>
 	
 		<section>
-			<form th:action="@{/updatePlayerData}" >
+		
+			<form th:action="@{/updatePlayerData}" 
+				th:object="${playerForm}" th:method="PUT">
 				Spielername:
-				<input type="text" id="sName" />
+				<input type="text" th:field="*{sName}" />
 				<br/>
 				Mail:
-				<input type="text" id="sMail" />
+				<input type="text" th:field="*{sMail}" />
 				<br/>
 				Neue Mail
-				<input type="text" id="sNewMail" />
+				<input type="text" th:field="*{sNewMail}" />
 				<br/>
-				<input onClick="sendPUT2()" type="submit" value="Daten aendern"/>	
+				<input type="submit" value="Daten aendern"/>	
 			</form>
+			
 			<div th:if="${errorMessage}" th:utext="${errorMessage}" ></div>
 		
 		</section>
 	
-	<br>
-	<br>
+		<br>
+		<br>
 	
-	<footer>
-		<a href="html/impressum.html" TARGET="_blank">Impressum</a>
-	</footer>
+		<footer>
+			<a href="html/impressum.html" TARGET="_blank">Impressum</a>
+		</footer>
+	
 	</body>
-	
 </html>
