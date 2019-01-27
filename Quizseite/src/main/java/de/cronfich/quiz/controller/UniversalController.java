@@ -9,14 +9,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import de.cronfich.quiz.Highscore;
@@ -32,7 +29,6 @@ public class UniversalController {
 	private static List<Player> players = new ArrayList<Player>();
 	private static HashMap<Integer, Question> questions = new HashMap<Integer, Question>();
 	
-	private String APIPrefix = "http://localhost:8080";
 	
 	private static int nFragen_Counter = 1;
 	private int nPunktePlayer = 0;
@@ -52,6 +48,15 @@ public class UniversalController {
 	
 	@Value("${error.message.NewMailRequired}")
 	private String errorMessageNewMailRequired;
+	
+	@Value("${error.message.MissingData}")
+	private String errorMessageMissingData;
+	
+	@Value("${error.message.WrongeMailSyntax}")
+	private String errorMessageWrongeMailSyntax;
+	
+	@Value("${error.message.WrongeNewMailSyntax}")
+	private String errorMessageWrongeNewMailSyntax;
 	
 	
 	@RequestMapping(path = "/")
@@ -110,6 +115,11 @@ public class UniversalController {
 		String sMail = playerForm.getsMail();
 		
 		if(sName != null && sName.length() > 0 && sMail != null && sMail.length() > 0) {
+			
+			if(!checkMail(sMail)) {
+				model.addAttribute("errorMessage", errorMessageWrongeMailSyntax);
+				return "deletePlayer.html";
+			}
 			
 			Iterator<Player> iter = players.iterator();
 			while(iter.hasNext()) {
@@ -212,6 +222,11 @@ public class UniversalController {
 		
 		if(sName != null && sName.length() > 0 && sMail != null && sMail.length() > 0) {
 			
+			if(!checkMail(sMail)) {
+				model.addAttribute("errorMessage", errorMessageWrongeMailSyntax);
+				return "quizende.html";
+			}
+			
 			Player newPlayer = new Player(0, sName, nPunktePlayer, sMail);
 			try {
 				Highscore.WritteRangliste(newPlayer);
@@ -239,22 +254,40 @@ public class UniversalController {
 	
 	
 	@RequestMapping(path = "/updatePlayerData", 
-					method = RequestMethod.PUT,
-					produces = MediaType.APPLICATION_JSON_VALUE)
-	public String updatePlayer(Model model, @RequestParam("sName") String sName1, @RequestParam("sMail") String sMail1, @RequestParam("sNewMail") String sNewMail1) {
+					method = RequestMethod.PUT)
+	public String updatePlayer(Model model, @ModelAttribute("playerForm") PlayerForm playerForm) {
 		
-		String sName = sName1;
-		String sMail = sMail1;
-		String sNewMail = sNewMail1;
+		boolean bPlayerFound = false;
+		
+		String sName = playerForm.getsName();
+		String sMail = playerForm.getsMail();
+		String sNewMail = playerForm.getsNewMail();
 		
 		if(sName != null && sName.length() > 0 && sMail != null && sMail.length() > 0 && sNewMail != null && sNewMail.length() > 0) {
+			
+			if(!checkMail(sMail)) {
+				model.addAttribute("errorMessage", errorMessageWrongeMailSyntax);
+				return "updatePlayerData.html";
+			}
+			if(!checkMail(sNewMail)) {
+				model.addAttribute("errorMessage", errorMessageWrongeNewMailSyntax);
+				return "updatePlayerData.html";
+			}
+			//List die Daten aus der rangliste.txt ein
+			try {
+				players = Highscore.ReadRangliste();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			
 			Iterator<Player> iter = players.iterator();
 			while(iter.hasNext()) {
 				Player player = iter.next();
 				
 				if(player.getsName().equals(sName) && player.getsMail().equals(sMail)) {
-										
+					bPlayerFound = true;
 					player.setsMail(sNewMail); //Neue Mail vom Spieler wird gesetzt
 					
 					//Schreibt die Rangliste erneut
@@ -270,17 +303,33 @@ public class UniversalController {
 				}
 			}
 		}
+		
+		if ( (sName == null || sName.length() == 0) && (sMail == null || sMail.length() == 0) && (sNewMail == null || sNewMail.length() == 0) ) 
+				model.addAttribute("errorMessage", errorMessageMissingData);
 		else if (sName == null || sName.length() == 0)
 			model.addAttribute("errorMessage", errorMessagePlayerNameRequired);
-		else if(sMail == null || sName.length() == 0)
+		else if(sMail == null || sMail.length() == 0)
 			model.addAttribute("errorMessage", errorMessageOldMailRequired);
 		else if(sNewMail == null || sNewMail.length() == 0)
 			model.addAttribute("errorMessage", errorMessageNewMailRequired);
-		else
+		else if(!bPlayerFound)
 			model.addAttribute("errorMessage", errorMessagePlayerNotFound);
 		
 		return "updatePlayerData.html";
 	}
+	
+	/**
+	 * Die Methode prüft die angegebene E-Mail Adresse ein @ Zeichen enthält
+	 * @param sMail Mail-Adresse die geprüft werden soll
+	 * @return true Wenn Mail korrekt, ansonsten false
+	 */
+	private boolean checkMail(String sMail) {
+		
+		if(sMail.indexOf("@") == -1)
+			return false;
+		return true;
+	}
 }
+
 
 
