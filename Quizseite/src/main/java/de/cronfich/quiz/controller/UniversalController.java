@@ -63,7 +63,7 @@ public class UniversalController {
 	public String getWelcomePage(Model model) {
 		
 		RestTemplate restTemplate = new RestTemplate();
-		Quote quote = restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
+		Quote quote	= restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
 		model.addAttribute("quote", quote.toString());
 		return "index.html";
 	}

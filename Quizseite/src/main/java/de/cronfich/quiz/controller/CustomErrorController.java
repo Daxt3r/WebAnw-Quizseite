@@ -17,17 +17,21 @@ public class CustomErrorController implements ErrorController {
 		Exception exception = (Exception)
 				request.getAttribute("javax.servlet.error.exception");
 				return String.format
-							("<html>"
+							("<!DOCTYPE html>"
 									+ "<head>"
-									+ "<link rel=stylesheet href=css/styles.css>"
+									+ "<meta charset=\"UTF-8\">\r\n" 
+									+ "<meta name=\"description\" content=\"Fehler Seite\">"
+									+ "<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/styles.css\" />"
+									+ "<title>Fehlerseite</title>"
 									+ "</head>"
 									+ "<body>"
-									+ "<h1 align=center>Page Not Found</h1>"
-									+ "<div align=center>Sorry, but the page you were trying to</div>"
-									+ "<div align=center>view does not exist.</div>"
-									+ "<div align=center>Status code: <b>%s</b></div>"
-									+ "<div align=center>Exception Message: %s</div>"
-									+ "<body>"
+									+ "<section>"
+									+ "<h1>Page Not Found</h1>"
+									+ "<p>Sorry, but the page you were trying to view does not exist.</p>"
+									+ "<p>Status code: <b>%s</b></p>"
+									+ "<p>Exception Message: %s</p>"
+									+ "</section>"
+									+ "</body>"
 									+ "</html>",
 	                      statusCode, exception==null? "N/A": exception.getMessage());
 	}
